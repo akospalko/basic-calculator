@@ -1,0 +1,170 @@
+:root {
+  --gradient1:#ed213a;
+  --gradient2:#802319;
+  --font-color1: white;
+  --font-color2: black;
+  --calculator-background:#380003;
+  --color1: #070328 ;
+  --color2: #372F78;
+  --color3: #AA3339 ;
+  --color3-hover: #D15F65;
+  --color4: #AD9B34;
+
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, var(--gradient1), var(--gradient2));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  background: var(--calculator-background); 
+  width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 15px 30px -5px rgba(0,0,0, 0.6);
+}
+
+.calculator-display {
+  height: 75px;
+  border-radius: 8px 8px 0 0;
+  color: var(--font-color1);
+  background: var(--color1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.calculator-display h1 {
+  overflow-x: auto; /*scrollbar appears if needed */
+  margin: 0px ;
+  padding: 12px;
+  font-family: 'Lucida Console', sans-serif;
+  font-size: 35px;
+  font-weight: 100;
+}
+
+/* Custom scroll bar for calculator display */
+/* Width */
+::-webkit-scrollbar {
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: var(--color2); 
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Buttons */
+.buttons-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+  padding: 0 10px 10px 10px;
+}
+
+/* Custom layout for buttons */
+.o1 {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.o2 {
+  grid-column: 5;
+  grid-row: 1;
+}
+
+.o3 {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+.o4 {
+  grid-column: 5;
+  grid-row: 2;
+}
+
+.clear {
+  grid-column: 4 / span 2;
+  grid-row: 3;
+  background: var(--color2);
+  color: var(--font-color1);
+}
+
+.clear:hover {
+    filter: brightness(130%);
+    background: var(--color2);
+    color: var(--font-color1);
+}
+ 
+.equal-sign {
+  grid-column: 4 / span 2 ;
+  grid-row: 4;
+  background: var(--color1);
+  color: var(--font-color1);
+}
+
+.equal-sign:hover {
+  filter:brightness(130%);
+  background: var(--color1);
+  color: var(--font-color1);
+}
+
+.zero {
+  grid-column: 1 / span 2;
+  grid-row: 4;
+}
+
+/* Custom buttons*/
+button {
+  min-height: 50px;
+  border: none;
+  user-select: none;
+  cursor:pointer;
+  border-radius: 5px;
+  color: var(--font-color1);
+  font-size: 25px;
+  font-weight: 100;
+  background: var(--color3); 
+  outline:none;
+}
+
+button:hover {
+  background: var(--color3-hover);
+  color:var(--font-color2);
+}
+
+button:active {
+transform:translateY(1px);
+}
+
+.operator:not(.equal-sign) { 
+  background: var(--color4);
+  color: var(--font-color2);
+}
+
+.operator:hover {
+  filter:brightness(130%);
+}
+ 
+/* MediaQuery: on screens that are 600px or less */
+@media screen and (max-width: 600px) {
+  .calculator {
+    width: 95%;
+  }
+}
